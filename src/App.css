@@ -170,3 +170,12 @@
 body.sidebar-open {
   overflow: hidden;
 }
+.footer-link {
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 12px;
+  transition: var(--transition);
+}
+.footer-link:hover {
+  color: var(--primary);
+}
