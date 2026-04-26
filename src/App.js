@@ -4,6 +4,7 @@ import { AnimatePresence, motion } from 'framer-motion';
 import Sidebar from './components/layout/Sidebar';
 import Header from './components/layout/Header';
 import LoadingSpinner from './components/common/LoadingSpinner';
+import EmptyState from './components/common/EmptyState';
 import './styles/global.css';
 import './App.css';
 
@@ -118,6 +119,27 @@ const AnimatedRoutes = ({ theme }) => {
             </motion.div>
           } 
         />
+        {/* 404 Page */}
+        <Route 
+          path="*" 
+          element={
+            <motion.div
+              variants={pageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+              transition={pageTransition}
+            >
+              <EmptyState 
+                type="error"
+                title="Page Not Found"
+                message="The page you're looking for doesn't exist or has been moved."
+                actionText="Go to Dashboard"
+                onAction={() => window.location.href = '/'}
+              />
+            </motion.div>
+          } 
+        />
       </Routes>
     </AnimatePresence>
   );
@@ -229,9 +251,9 @@ function App() {
               <div className="footer-content">
                 <p>© 2024 FleetFlow. All rights reserved.</p>
                 <div className="footer-links">
-                  <a href="#">Privacy</a>
-                  <a href="#">Terms</a>
-                  <a href="#">Help</a>
+                  <span className="footer-link">Privacy</span>
+                  <span className="footer-link">Terms</span>
+                  <span className="footer-link">Help</span>
                 </div>
               </div>
             </footer>
