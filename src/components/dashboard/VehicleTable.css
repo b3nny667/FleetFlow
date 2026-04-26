@@ -1,0 +1,242 @@
+/* VehicleTable - Mobile First (Card View) */
+.vehicle-table-container {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.table-header {
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border-light);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vehicle-count {
+  font-size: 13px;
+  padding: 4px 12px;
+  background: var(--bg-tertiary);
+  border-radius: 40px;
+  color: var(--text-secondary);
+}
+
+/* Mobile: Hide table, show cards */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.vehicle-table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 800px;
+}
+
+.vehicle-table th {
+  text-align: left;
+  padding: 14px 16px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  background: var(--bg-secondary);
+  border-bottom: 1px solid var(--border-light);
+  cursor: pointer;
+  user-select: none;
+  transition: var(--transition);
+  white-space: nowrap;
+}
+
+.vehicle-table th:hover {
+  color: var(--primary);
+}
+
+.vehicle-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--border-light);
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+.vehicle-row {
+  transition: var(--transition);
+}
+
+/* Vehicle Info Cell */
+.vehicle-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.vehicle-icon {
+  width: 36px;
+  height: 36px;
+  background: var(--bg-tertiary);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--primary);
+}
+
+.vehicle-plate {
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.vehicle-model {
+  font-size: 11px;
+  color: var(--text-muted);
+}
+
+.vehicle-type-badge {
+  padding: 4px 10px;
+  background: var(--bg-tertiary);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.driver-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.driver-avatar {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+}
+
+.fuel-cell {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.fuel-bar {
+  width: 70px;
+  height: 6px;
+  background: var(--bg-tertiary);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.fuel-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 0.3s;
+}
+
+.fuel-text {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.maintenance-cell {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--text-secondary);
+  font-size: 13px;
+}
+
+.view-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-btn:hover {
+  background: var(--primary);
+  color: white;
+}
+
+.sort-icon-inactive {
+  opacity: 0.3;
+}
+
+/* Mobile Card Alternative - Show hint */
+.mobile-scroll-hint {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  color: var(--text-muted);
+  font-size: 12px;
+  background: var(--bg-secondary);
+  border-top: 1px solid var(--border-light);
+}
+
+.mobile-scroll-hint svg {
+  animation: swipeHint 1.5s ease-in-out infinite;
+}
+
+@keyframes swipeHint {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(5px); }
+}
+
+/* Hide hint on desktop */
+@media (min-width: 768px) {
+  .mobile-scroll-hint {
+    display: none;
+  }
+  
+  .vehicle-table {
+    min-width: 100%;
+  }
+}
+
+/* Tablet and Desktop */
+@media (min-width: 768px) {
+  .table-header {
+    padding: 20px 24px;
+  }
+  
+  .table-header h3 {
+    font-size: 18px;
+  }
+  
+  .vehicle-table th {
+    padding: 16px 20px;
+    font-size: 12px;
+  }
+  
+  .vehicle-table td {
+    padding: 16px 20px;
+  }
+  
+  .vehicle-icon {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .fuel-bar {
+    width: 80px;
+  }
+}
