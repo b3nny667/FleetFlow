@@ -6,11 +6,11 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import EmptyState from '../components/common/EmptyState';
 import DriverDetailPanel from '../components/drivers/DriverDetailPanel';
 import { 
-  Filter, ChevronRight, User, Phone, Mail, Truck, Clock, 
-  MapPin, Award, Star, TrendingUp, AlertCircle, CheckCircle,
-  Calendar, Package, Navigation, MessageSquare, MoreVertical,
-  Users, Shield, FileText, Activity, Gauge, Fuel, Plus,
-  Briefcase, Target, Zap, BarChart3, Download, Share2
+  Filter, ChevronRight, Phone, Mail, Truck, Clock, 
+  Star, CheckCircle,
+  Calendar, Package, MessageSquare, MoreVertical,
+  Users, Activity, Gauge, Plus,
+  Target
 } from 'lucide-react';
 import './Drivers.css';
 
@@ -18,7 +18,7 @@ const Drivers = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [shiftFilter, setShiftFilter] = useState('all');
   const [statusFilter, setStatusFilter] = useState('all');
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false);
   const [selectedDriver, setSelectedDriver] = useState(null);
   const [viewMode, setViewMode] = useState('grid');
 
@@ -33,12 +33,12 @@ const Drivers = () => {
         ...driver,
         vehicleInfo: vehicle,
         status: ['On Shift', 'Off Shift', 'On Leave'][Math.floor(Math.random() * 3)],
-        rating: (Math.random() * 2 + 3).toFixed(1), // 3.0 - 5.0
+        rating: (Math.random() * 2 + 3).toFixed(1),
         deliveriesCompleted: Math.floor(Math.random() * 1500) + 500,
-        onTimeRate: Math.floor(Math.random() * 15) + 85, // 85% - 100%
-        avgDeliveryTime: Math.floor(Math.random() * 30) + 20, // 20-50 min
+        onTimeRate: Math.floor(Math.random() * 15) + 85,
+        avgDeliveryTime: Math.floor(Math.random() * 30) + 20,
         totalMiles: Math.floor(Math.random() * 50000) + 10000,
-        fuelEfficiency: (Math.random() * 3 + 6).toFixed(1), // 6.0 - 9.0 mpg
+        fuelEfficiency: (Math.random() * 3 + 6).toFixed(1),
         certifications: ['CDL', 'HazMat', 'Tanker'].slice(0, Math.floor(Math.random() * 3) + 1),
         joinDate: `202${Math.floor(Math.random() * 3) + 1}`,
         lastActive: ['2 min ago', '15 min ago', '1 hour ago', '3 hours ago'][Math.floor(Math.random() * 4)],
@@ -82,7 +82,7 @@ const Drivers = () => {
     }
     
     return result;
-  }, [searchTerm, shiftFilter, statusFilter, enrichedDrivers]);
+  }, [searchTerm, shiftFilter, statusFilter, enrichedDrivers, shiftOptions]);
 
   const getInitials = (name) => {
     return name.split(' ').map(n => n[0]).join('');
